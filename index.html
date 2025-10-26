@@ -1,0 +1,140 @@
+
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pizzarendelés</title>
+  <style>
+    html{background-image:url('pizza.jpg');background-repeat:repeat;background-size:200px}
+    body{font-family:Arial, sans-serif;background:#fff6f0;color:#333;max-width:600px;margin:40px auto;padding:20px;border-radius:15px;box-shadow:0 0 15px rgba(0,0,0,.1)}
+    h2{border-bottom:2px solid #f5c5a3;padding-bottom:5px;color:#e67e22;margin-top:0}
+    fieldset{border:2px solid #f5c5a3;background:#fff;border-radius:10px;padding:15px 20px;margin-bottom:20px}
+    legend{font-weight:700;color:#e67e22}
+    label{display:flex;justify-content:space-between;align-items:center;margin:6px 0;gap:8px;cursor:pointer}
+    .price{color:#666;font-size:.95em;margin-left:10px;white-space:nowrap}
+    input[type="text"],input[type="tel"],textarea{width:100%;border-radius:8px;border:1px solid #ccc;padding:8px;box-sizing:border-box}
+    .order-footer{background:#fff6f0;border:2px solid #f5c5a3;border-radius:16px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .order-footer .total{margin:0 0 12px 0;font-weight:800;font-size:1.4rem;color:#e67e22}
+    .btn-primary{background:#e67e22;color:#fff;border:0;padding:12px 25px;border-radius:10px;font-size:16px;cursor:pointer;transition:.2s;box-shadow:0 4px 12px rgba(230,126,34,.35)}
+    .btn-primary:hover{background:#cf711f;transform:translateY(-1px)}
+    .btn-primary:active{transform:translateY(0);box-shadow:0 2px 8px rgba(230,126,34,.35)}
+  </style>
+</head>
+<body>
+  <h2>Pizzarendelés</h2>
+
+  <form id="pizzaForm" novalidate>
+    <fieldset>
+      <legend>Pizza mérete *</legend>
+      <label><span><input type="radio" name="meret" value="25 cm" data-ar="1000" required> 25 cm</span> <span class="price">1000 HUF</span></label>
+      <label><span><input type="radio" name="meret" value="32 cm" data-ar="2000"> 32 cm</span> <span class="price">2000 HUF</span></label>
+      <label><span><input type="radio" name="meret" value="45 cm" data-ar="3000"> 45 cm</span> <span class="price">3000 HUF</span></label>
+      <label><span><input type="radio" name="meret" value="54 cm" data-ar="4000"> 54 cm</span> <span class="price">4000 HUF</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pizza típusa *</legend>
+      <label><span><input type="radio" name="tipus" value="Búzafinomlisztből" data-ar="0" required> Búzafinomlisztből</span> <span class="price">+0 HUF</span></label>
+      <label><span><input type="radio" name="tipus" value="Teljes kiőrlésű lisztből" data-ar="300"> Teljes kiőrlésű lisztből</span> <span class="price">+300 HUF</span></label>
+      <label><span><input type="radio" name="tipus" value="Gluténmentes lisztből" data-ar="500"> Gluténmentes lisztből</span> <span class="price">+500 HUF</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Szósz *</legend>
+      <label><span><input type="radio" name="szosz" value="Paradicsomszósz" data-ar="100" required> Paradicsomszósz</span> <span class="price">+100 HUF</span></label>
+      <label><span><input type="radio" name="szosz" value="Ragu" data-ar="100"> Ragu</span> <span class="price">+100 HUF</span></label>
+      <label><span><input type="radio" name="szosz" value="Sajtszósz" data-ar="100"> Sajtszósz</span> <span class="price">+100 HUF</span></label>
+      <label><span><input type="radio" name="szosz" value="Tejfölös" data-ar="100"> Tejfölös</span> <span class="price">+100 HUF</span></label>
+      <label><span><input type="radio" name="szosz" value="Mustáros" data-ar="100"> Mustáros</span> <span class="price">+100 HUF</span></label>
+      <label><span><input type="radio" name="szosz" value="Szósz nélkül" data-ar="0"> Szósz nélkül</span> <span class="price">+0 HUF</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Feltét</legend>
+      <label><span><input type="checkbox" name="feltet" value="Mozzarella" data-ar="100"> Mozzarella</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Reszelt trappista" data-ar="100"> Reszelt trappista</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Szalámi" data-ar="100"> Szalámi</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Sonka" data-ar="100"> Sonka</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Gomba" data-ar="100"> Gomba</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Kukorica" data-ar="100"> Kukorica</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Hagyma" data-ar="100"> Hagyma</span><span class="price">+100 HUF</span></label>
+      <label><span><input type="checkbox" name="feltet" value="Olívabogyó" data-ar="100"> Olívabogyó</span><span class="price">+100 HUF</span></label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Megjegyzés</legend>
+      <textarea name="megjegyzes" rows="3" placeholder="Allergia, kapucsengő, egyéb kérés..."></textarea>
+    </fieldset>
+
+    <fieldset>
+      <legend>Név *</legend>
+      <input type="text" name="nev" required placeholder="Vezetéknév Keresztnév" />
+    </fieldset>
+
+    <fieldset>
+      <legend>Telefonszám *</legend>
+      <input type="tel" name="telefon" pattern="[0-9 +()-]{6,}" placeholder="+36 30 123 4567" required />
+    </fieldset>
+
+    <fieldset>
+      <legend>Cím *</legend>
+      <input type="text" name="cim" required placeholder="Cím, emelet/ajtó" />
+    </fieldset>
+
+    <div class="order-footer">
+      <p class="total">Fizetendő összeg: <span id="osszeg">0 HUF</span></p>
+      <button type="submit" class="btn-primary">Rendelés elküldése</button>
+    </div>
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const form = document.getElementById("pizzaForm");
+      const osszegElem = document.getElementById("osszeg");
+
+      function formatHUF(n){ return new Intl.NumberFormat('hu-HU').format(n) + " HUF"; }
+
+      function frissitOsszeg(){
+        let osszeg = 0;
+        form.querySelectorAll("input:checked").forEach(el=>{
+          const plusz = parseInt(el.dataset.ar || "0", 10);
+          if(!isNaN(plusz)) osszeg += plusz;
+        });
+        osszegElem.textContent = formatHUF(osszeg);
+        return osszeg;
+      }
+
+      form.addEventListener("input", frissitOsszeg);
+      form.addEventListener("change", frissitOsszeg);
+      frissitOsszeg();
+
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        // adatok összegyűjtése
+        const adat = {
+          nev: form.nev.value.trim(),
+          telefon: form.telefon.value.trim(),
+          cim: form.cim.value.trim(),
+          megjegyzes: form.megjegyzes.value.trim(),
+          meret: form.querySelector('input[name="meret"]:checked')?.value || "",
+          tipus: form.querySelector('input[name="tipus"]:checked')?.value || "",
+          szosz: form.querySelector('input[name="szosz"]:checked')?.value || "",
+          feltetek: [...form.querySelectorAll('input[name="feltet"]:checked')].map(f=>f.value),
+          osszeg: frissitOsszeg()
+        };
+
+        
+        try{
+          localStorage.setItem('gdepizza_order', JSON.stringify(adat));
+        }catch(e){ /* ha tele a storage, figyelmen kívül hagyjuk */ }
+
+        window.location.href = new URL('koszonjuk_a_rendelest/index.html', location.href).href;
+        // ha mappás szerkezetben lesz: window.location.href = new URL('koszonjuk_a_rendelest/index.html', location.href).href;
+      });
+    });
+  </script>
+</body>
+</html>
